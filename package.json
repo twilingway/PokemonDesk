@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Tutorial",
   "scripts": {
-    "build:dev": "cross-env NODE_ENV=development & webpack --config webpack.config.js",
-    "build:prod": "cross-env NODE_ENV=production & webpack --config webpack.config.js",
-    "start": "cross-env NODE_ENV=development & webpack-dev-server"
+    "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server"
   },
   "repository": "https://github.com/twilingway/PokemonDesk.git",
   "author": "GLAZUNOV ALEKSEI <993468@gmail.com>",
