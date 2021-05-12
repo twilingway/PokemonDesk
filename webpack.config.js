@@ -10,7 +10,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js',
+        filename: 'main.js'
     },
     module: {
         rules: [
@@ -26,7 +26,7 @@ module.exports = {
                         modules: {
                             mode: 'local',
                             localIdentName: '[name]__[local]__[hash:base64:5]',
-                            auto: /\.modules\.\w+$/i,
+                            auto: /\.module\.\w+$/i,
                         },
                     },
 
