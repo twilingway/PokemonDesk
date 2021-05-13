@@ -4,14 +4,14 @@ const concat: TypeConcat = (str1, str2) => str1 + str2;
 
 interface IMyHometask {
   howIDoIt: string;
-  simeArray: (string | number)[];
+  someArray: (string | number)[];
   withData?: IMyHometask[];
 }
 
 const myHometask: IMyHometask = {
   howIDoIt: 'I Do It Wel',
-  simeArray: ['string one', 'string two', 42],
-  withData: [{ howIDoIt: 'I Do It Wel', simeArray: ['string one', 23] }],
+  someArray: ['string one', 'string two', 42],
+  withData: [{ howIDoIt: 'I Do It Wel', someArray: ['string one', 23] }],
 };
 
 interface IMyArray<T> {
