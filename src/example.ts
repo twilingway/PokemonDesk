@@ -5,12 +5,7 @@ const concat: TypeConcat = (str1, str2) => str1 + str2;
 interface IMyHometask {
   howIDoIt: string;
   simeArray: (string | number)[];
-  withData: [
-    {
-      howIDoIt: string;
-      simeArray: (string | number)[];
-    },
-  ];
+  withData?: IMyHometask[];
 }
 
 const myHometask: IMyHometask = {
