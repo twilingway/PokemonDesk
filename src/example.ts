@@ -17,12 +17,12 @@ const myHometask: IMyHometask = {
 interface IMyArray<T> {
   [N: number]: T;
   map<U>(fn: (el: T) => U): U[];
-  reduce(callbackfn: (previousValue: T, currentValue: T, currentIndex: number, array: T[]) => T): T;
+  reduce<U>(callbackfn: (previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U, initValue: U): U;
 }
 
 const myArray: IMyArray<number> = [1, 2, 3, 4];
 myArray.map((i) => i + 1);
 
-const arr = myArray.reduce((sum, current) => sum + current);
+const arr = myArray.reduce((sum, current) => sum + current, 0);
 
 concat(myHometask.howIDoIt, arr.toString());
