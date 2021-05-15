@@ -3,3 +3,4 @@ node_modules/
 
 src/**.d.ts
 src/**.*.module.scss.d.ts
+**.d.ts

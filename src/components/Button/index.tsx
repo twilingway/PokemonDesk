@@ -2,12 +2,12 @@ import React from 'react';
 import cn from 'classnames';
 import s from './button.module.scss';
 
-enum ButtonColorEnum {
+export enum ButtonColorEnum {
   green = 'green',
   yellow = 'yellow',
 }
 
-enum ButtonSizeEnum {
+export enum ButtonSizeEnum {
   normal = 'normal',
   small = 'small',
   allSpace = 'allSpace',
