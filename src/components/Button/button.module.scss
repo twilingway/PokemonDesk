@@ -1,0 +1,59 @@
+@import '../../varibales';
+
+.root {
+  border: none;
+  background: #73d677;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+  border-radius: 11px;
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 36px 9px;
+  cursor: pointer;
+  outline: none;
+
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 23px;
+  line-height: 27px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #212121;
+
+  &:active {
+    box-shadow: inset 0px -6px 0px rgba(0, 0, 0, 0.18);
+    padding-bottom: 6px;
+  }
+}
+
+.green {
+  background: $green;
+}
+
+.yellow {
+  background: $primary;
+}
+
+.children {
+  padding: 0;
+}
+
+.normal {
+  height: 66px;
+}
+
+.small {
+  height: 56px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.allSpace {
+  width: 100%;
+}
