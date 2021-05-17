@@ -2,3 +2,5 @@ node_modules/
 .idea/
 
 src/**.d.ts
+src/**.*.module.scss.d.ts
+**.d.ts
