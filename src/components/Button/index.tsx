@@ -26,7 +26,7 @@ const Button: React.FC<IButtonProps> = ({
   size = ButtonSizeEnum.normal,
 }) => (
   <button type="button" className={cn(s.root, { [s[color]]: color, [s[size]]: size })} onClick={onClick}>
-    <span className={s.children}>{children}</span>
+    <div className={s.children}>{children}</div>
   </button>
 );
 
