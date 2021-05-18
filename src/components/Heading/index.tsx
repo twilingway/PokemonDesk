@@ -1,5 +1,5 @@
 import React from 'react';
-
+import cn from 'classnames';
 import s from './heading.module.scss';
 
 export enum TagEnum {
@@ -14,13 +14,19 @@ export enum TagEnum {
 interface IHeadingProps {
   tag: TagEnum;
   size?: string;
+  className?: string;
 }
 
-const Heading: React.FC<IHeadingProps> = ({ children, tag: Tag, size }) => {
+const Heading: React.FC<IHeadingProps> = ({
+  children,
+  tag: Tag,
+  size,
+  className,
+}) => {
   const style = { '--font-size': size } as React.CSSProperties;
 
   return (
-    <Tag className={s[Tag]} style={style}>
+    <Tag className={cn(s[Tag], className)} style={style}>
       {children}
     </Tag>
   );

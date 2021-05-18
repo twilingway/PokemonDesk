@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     browser: true,
+    es2021: true,
   },
   extends: ['airbnb', 'airbnb/hooks', 'react-app', 'prettier'],
   parser: '@typescript-eslint/parser',
@@ -15,9 +16,13 @@ module.exports = {
   rules: {
     'no-shadow': ['off', { builtinGlobals: false, hoist: 'never', allow: [] }],
     'react/prop-types': 'off',
+    'react/require-default-props': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'no-console': 'error',
-    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
+    'react/jsx-filename-extension': [
+      'error',
+      { extensions: ['.jsx', '.tsx', '.ts', '.js'] },
+    ],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -28,6 +33,8 @@ module.exports = {
         jsx: 'never',
       },
     ],
+    semi: [2, 'always'],
+    quotes: ['error', 'single'],
   },
   settings: {
     'import/resolver': {
