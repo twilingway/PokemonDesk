@@ -1,0 +1,56 @@
+@import '../../varibales';
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: $danger;
+}
+
+.container {
+  max-width: 1284px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .text {
+    color: #591b17;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 402px;
+    line-height: 470px;
+    /* identical to box height */
+    letter-spacing: 4px;
+    margin-bottom: 128px;
+  }
+
+  .trio {
+    position: absolute;
+    top: 25%;
+  }
+
+  .row {
+    margin-bottom: 32px;
+    .rocket {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      color: $white;
+    }
+
+    .won {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
+  }
+  .return {
+    width: 231px;
+  }
+}

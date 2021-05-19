@@ -5,12 +5,6 @@ import { ReactComponent as PokemonLogoSvg } from './assets/Logo.svg';
 import { GENERAL_MENU } from '../../routes';
 import s from './header.module.scss';
 
-// interface IMenu {
-//   id: number;
-//   value: string;
-//   link: string;
-// }
-
 const Header = () => {
   const path = usePath();
   return (
