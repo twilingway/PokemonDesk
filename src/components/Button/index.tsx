@@ -17,6 +17,7 @@ interface IButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   color?: ButtonColorEnum;
   size?: ButtonSizeEnum;
+  className?: string;
 }
 
 const Button: React.FC<IButtonProps> = ({
@@ -24,8 +25,12 @@ const Button: React.FC<IButtonProps> = ({
   onClick,
   color = ButtonColorEnum.green,
   size = ButtonSizeEnum.normal,
+  className,
 }) => (
-  <button type="button" className={cn(s.root, { [s[color]]: color, [s[size]]: size })} onClick={onClick}>
+  <button
+    type="button"
+    className={cn(s.root, { [s[color]]: color, [s[size]]: size }, className)}
+    onClick={onClick}>
     <div className={s.children}>{children}</div>
   </button>
 );
