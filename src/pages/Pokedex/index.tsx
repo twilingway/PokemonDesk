@@ -47,8 +47,8 @@ function PokedexPage({ title = '' }: IPokedexPageProps) {
           </div>
           <div className={s.pokemons}>
             {pokemons.map((item) => (
-              <div className={s.pokemon}>
-                <PokemonCard pokemon={item} />
+              <div className={s.pokemon} key={item.id}>
+                <PokemonCard key={item.id} pokemon={item} />
               </div>
             ))}
           </div>

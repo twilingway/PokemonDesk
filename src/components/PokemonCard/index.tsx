@@ -26,7 +26,11 @@ function PokemonCard({ pokemon }: IPokemonCard) {
           </div>
         </div>
         <div className={s.labelWrap}>
-          <span className={s.label}>Fire</span>
+          {pokemon.types.map((item) => (
+            <span key={pokemon.id + item} className={s.label}>
+              {item}
+            </span>
+          ))}
         </div>
       </div>
       <div className={s.pictureWrap}>
