@@ -1,9 +1,9 @@
-import React from 'react';
-import Pokemons from './pokemons.json';
-import Header from '../../components/Header';
-import s from './pokedex.module.scss';
+import React, { useEffect, useState } from 'react';
 import PokemonCard from '../../components/PokemonCard';
 import Heading, { TagEnum } from '../../components/Heading';
+import req from '../../utils/request';
+
+import s from './pokedex.module.scss';
 
 interface IPokedexPageProps {
   title?: string;
@@ -19,34 +19,79 @@ export interface IStats {
 }
 
 export interface IPokemon {
-  // name_clean: string;
   abilities: string[];
   stats: IStats;
   types: string[];
   img: string;
   name: string;
-  // base_experience: number;
+
   height: number;
   id: number;
-  // is_default: boolean;
+
   order: number;
   weight: number;
 }
 
+interface IPokemonsData {
+  total: number;
+  count: number;
+  offset: number;
+  limit: number;
+  pokemons: IPokemon[];
+}
+
+interface IPokemonsHook {
+  data: IPokemonsData;
+  isLoading: boolean;
+  isError: boolean;
+}
+
+const usePokemons = (): IPokemonsHook => {
+  const [data, setData] = useState<IPokemonsData>({} as IPokemonsData);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
+
+  useEffect(() => {
+    const getPokemons = async () => {
+      setIsLoading(true);
+      try {
+        const result = await req('getPokemons');
+
+        setData(result);
+        setIsError(false);
+      } catch (e) {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getPokemons();
+  }, []);
+
+  return { data, isLoading, isError };
+};
+
 function PokedexPage({ title = '' }: IPokedexPageProps) {
-  const pokemons: IPokemon[] = Pokemons;
+  const { data, isLoading, isError } = usePokemons();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Something Wrong!</div>;
+  }
   return (
     <>
-      <Header />
       <main className={s.wrapper}>
         <div className={s.container}>
           <div className={s.title}>
             <Heading tag={TagEnum.h3}>
-              800 pokemons for you to choose your favorite
+              {data.total} <b>Pokemons</b> for you to choose your favorite
             </Heading>
           </div>
           <div className={s.pokemons}>
-            {pokemons.map((item) => (
+            {data.pokemons.map((item) => (
               <div className={s.pokemon} key={item.id}>
                 <PokemonCard key={item.id} pokemon={item} />
               </div>
