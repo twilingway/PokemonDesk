@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../components/Header';
 
 interface IEmptyPageProps {
   title?: string;
@@ -8,7 +7,6 @@ interface IEmptyPageProps {
 function EmptyPage({ title = '' }: IEmptyPageProps) {
   return (
     <>
-      <Header />
       <div>This is Empty Page! {title}</div>
     </>
   );
