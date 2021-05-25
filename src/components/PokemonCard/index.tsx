@@ -1,8 +1,8 @@
 import React from 'react';
+import { IPokemon } from '../../hook/getData';
 import Heading, { TagEnum } from '../Heading';
 
 import s from './pokemonCard.module.scss';
-import { IPokemon } from '../../pages/Pokedex';
 
 interface IPokemonCard {
   pokemon: IPokemon;
