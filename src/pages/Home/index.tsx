@@ -1,11 +1,8 @@
 import React from 'react';
 import { navigate } from 'hookrouter';
-import Header from '../../components/Header';
+
 import Layout from '../../components/Layout';
-import Button, {
-  ButtonColorEnum,
-  ButtonSizeEnum,
-} from '../../components/Button';
+import Button, { ButtonSizeEnum } from '../../components/Button';
 
 import Heading, { TagEnum } from '../../components/Heading';
 import Parallax from '../../components/Parallax';
@@ -14,7 +11,6 @@ import { LinkEnum } from '../../routes';
 
 const HomePage = () => (
   <div className={s.root}>
-    <Header />
     <Layout className={s.contentWrap}>
       <div className={s.contentText}>
         <Heading tag={TagEnum.h1}>
@@ -27,10 +23,6 @@ const HomePage = () => (
           You can know the type of Pokemon, it`s strengths, disadvantages and
           abilities
         </Heading>
-        <Button>See pokemon</Button>
-        <Button color={ButtonColorEnum.yellow} size={ButtonSizeEnum.small}>
-          See pokemon
-        </Button>
         <Button
           size={ButtonSizeEnum.allSpace}
           onClick={() => navigate(LinkEnum.POKEDEX)}>
