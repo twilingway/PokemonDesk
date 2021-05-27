@@ -25,7 +25,7 @@ export interface IPokemon {
 }
 
 const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
-  const [data, setData] = useState<T | null>();
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
