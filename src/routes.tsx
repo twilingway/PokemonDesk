@@ -2,7 +2,9 @@ import React, { PropsWithChildren } from 'react';
 import PokedexPage from './pages/Pokedex';
 import EmptyPage from './pages/Empty';
 import HomePage from './pages/Home';
-import Pokemon, { IPokemonProps } from './pages/Pokemon';
+
+import PokemonContainer from './pages/Pokemon';
+import { IPokemonContainerProps } from './pages/Pokemon/PokemonContainer';
 
 interface IGeneralMenu {
   title: string;
@@ -45,7 +47,7 @@ const SECOND_ROUTES: IGeneralMenu[] = [
   {
     title: 'Pokemon',
     link: LinkEnum.POKEMON,
-    component: ({ id }: IPokemonProps) => <Pokemon id={id} />,
+    component: ({ id }: IPokemonContainerProps) => <PokemonContainer id={id} />,
   },
 ];
 

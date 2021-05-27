@@ -1,0 +1,97 @@
+@import '../../variables';
+.wrap {
+  max-width: 666px;
+  height: 320px;
+  margin: 0 auto;
+}
+.content {
+  display: flex;
+  background: $danger;
+  border-radius: 16px;
+}
+.image {
+  flex: 0 0 50%;
+  img {
+    width: 100%;
+  }
+}
+.main {
+  flex: 0 1 50%;
+  padding-right: 16px;
+}
+.name {
+  font-size: 24px;
+  line-height: 28px;
+  color: $white;
+}
+.generation {
+}
+.abilities {
+  display: flex;
+  width: 220px;
+  height: 50px;
+  padding: 16px;
+  background: $white;
+  /* blur card */
+
+  box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  border-radius: 16px;
+  color: $dark;
+  margin-bottom: 18px;
+}
+.pointGroup {
+  max-width: 336px;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $white;
+  padding: 16px;
+  /* blur card */
+
+  box-shadow: 4px 4px 4px rgba(33, 33, 33, 0.1);
+  border-radius: 16px;
+  color: $dark;
+
+  margin-bottom: 18px;
+  .healthy {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .expirience {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+.stats {
+  display: flex;
+  justify-content: space-between;
+  .item {
+    width: 69px;
+    height: 59px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: $white;
+    /* blur24 */
+
+    box-shadow: 4px 4px 24px rgba(1, 17, 38, 0.2);
+    border-radius: 8px;
+    .value {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 3px solid #212121;
+      box-sizing: border-box;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+    }
+    .type {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+}

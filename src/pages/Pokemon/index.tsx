@@ -1,11 +1,3 @@
-import React from 'react';
+import PokemonContainer from './PokemonContainer';
 
-export interface IPokemonProps {
-  id: number | string;
-}
-
-function Pokemon({ id }: IPokemonProps) {
-  return <div>This is {id} pokemon!</div>;
-}
-
-export default Pokemon;
+export default PokemonContainer;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { navigate } from 'hookrouter';
 import PokemonCard from '../../components/PokemonCard';
 import Heading, { TagEnum } from '../../components/Heading';
 import useData from '../../hook/getData';
@@ -6,6 +7,7 @@ import { IPokemons, PokemonsRequest } from '../../interface/pokemons';
 
 import s from './pokedex.module.scss';
 import useDebounce from '../../hook/useDebounce';
+import { LinkEnum } from '../../routes';
 
 interface IQuery {
   name?: string;
@@ -48,18 +50,23 @@ function PokedexPage() {
               favorite
             </Heading>
           </div>
-          <div>
+          <div className={s.search}>
             <input
               type="text"
               value={searchValue}
               onChange={handleSearchChange}
+              placeholder="Input name pokemon"
             />
           </div>
           <div className={s.pokemons}>
             {!isLoading &&
               data?.pokemons.map((item: PokemonsRequest) => (
                 <div className={s.pokemon} key={item.id}>
-                  <PokemonCard key={item.id} pokemon={item} />
+                  <PokemonCard
+                    key={item.id}
+                    pokemon={item}
+                    onClick={() => navigate(`${LinkEnum.POKEDEX}/${item.id}`)}
+                  />
                 </div>
               ))}
           </div>

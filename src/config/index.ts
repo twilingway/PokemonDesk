@@ -11,6 +11,12 @@ interface Iconfig {
           pathname: string;
         };
       };
+      getPokemonById: {
+        method: string;
+        uri: {
+          pathname: string;
+        };
+      };
     };
   };
 }
@@ -26,6 +32,12 @@ const config: Iconfig = {
         method: 'GET',
         uri: {
           pathname: '/api/v1/pokemons',
+        },
+      },
+      getPokemonById: {
+        method: 'GET',
+        uri: {
+          pathname: '/api/v1/pokemon/{id}',
         },
       },
     },
