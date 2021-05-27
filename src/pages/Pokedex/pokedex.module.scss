@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .wrapper {
   width: 100%;
   height: 100%;
@@ -12,6 +14,29 @@
 .title {
   display: flex;
   justify-content: center;
+}
+
+.search {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+
+  input {
+    text-align: center;
+    width: 100%;
+    height: 36px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    padding: 0 16px;
+    background: $white;
+    box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.1);
+
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 .pokemons {
   display: flex;
