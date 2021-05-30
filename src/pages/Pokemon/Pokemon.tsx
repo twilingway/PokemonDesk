@@ -1,5 +1,6 @@
 import React from 'react';
 import { PokemonsRequest } from '../../interface/pokemons';
+import toCapitalizeFirstLetter from '../../utils/toCapitalizeFirstLetter';
 
 import s from './pokemon.module.scss';
 
@@ -15,7 +16,7 @@ function Pokemon({ data }: IPokemonProps) {
           <img src={data.img} alt={data.name} />
         </div>
         <div className={s.main}>
-          <div className={s.name}>{data.name}</div>
+          <div className={s.name}>{toCapitalizeFirstLetter(data.name)}</div>
           {/* <div className={s.generation}></div> */}
           <div className={s.abilities}>
             Abilities

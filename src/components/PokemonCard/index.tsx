@@ -1,5 +1,6 @@
 import React from 'react';
 import { IPokemon } from '../../hook/getData';
+import toCapitalizeFirstLetter from '../../utils/toCapitalizeFirstLetter';
 import Heading, { TagEnum } from '../Heading';
 
 import s from './pokemonCard.module.scss';
@@ -18,7 +19,7 @@ const PokemonCard: React.FC<IPokemonCard> = ({ pokemon, onClick }) => (
     onKeyPress={onClick}>
     <div className={s.infoWrap}>
       <Heading tag={TagEnum.h4} className={s.titleName}>
-        {pokemon.name}
+        {toCapitalizeFirstLetter(pokemon.name)}
       </Heading>
       <div className={s.statWrap}>
         <div className={s.statItem}>
