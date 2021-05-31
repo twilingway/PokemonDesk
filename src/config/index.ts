@@ -17,6 +17,24 @@ interface Iconfig {
           pathname: string;
         };
       };
+      createPokemon: {
+        method: string;
+        uri: {
+          pathname: string;
+        };
+      };
+      updatePokemonById: {
+        method: string;
+        uri: {
+          pathname: string;
+        };
+      };
+      deletePokemonById: {
+        method: string;
+        uri: {
+          pathname: string;
+        };
+      };
     };
   };
 }
@@ -38,6 +56,26 @@ const config: Iconfig = {
         method: 'GET',
         uri: {
           pathname: '/api/v1/pokemon/{id}',
+        },
+      },
+
+      // FAKE API
+      createPokemon: {
+        method: 'POST',
+        uri: {
+          pathname: '/api/v1/pokemon/create',
+        },
+      },
+      updatePokemonById: {
+        method: 'PATCH',
+        uri: {
+          pathname: '/api/v1/pokemon/create',
+        },
+      },
+      deletePokemonById: {
+        method: 'DELETE',
+        uri: {
+          pathname: '/api/v1/pokemon/create',
         },
       },
     },
