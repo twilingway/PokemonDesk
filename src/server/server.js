@@ -1,6 +1,11 @@
-'use strict';
-
-const Hapi = require('@hapi/hapi');
+import fs from 'fs';
+import path from 'path';
+import handlebars from 'handlebars';
+import Hapi from '@hapi/hapi';
+import React from 'react';
+import ReactDom from 'react-dom/server';
+import { setPath } from 'hookrouter';
+import App from '../App';
 
 const init = async () => {
   const server = Hapi.server({
@@ -8,12 +13,32 @@ const init = async () => {
     host: 'localhost',
   });
 
+  // eslint-disable-next-line global-require
+  await server.register(require('@hapi/inert'));
+
+  server.route({
+    method: 'GET',
+    path: '/main.js',
+    handler: (request, h) =>
+      h.file(path.join(process.cwd(), 'dist', 'main.js')),
+  });
   server.route({
     method: 'GET',
     path: '/{any*}',
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    handler: (request, h) => `Hello World! This is page ${request.path}`,
+    handler: (request, h) => {
+      setPath(request.path);
+      const pathIndexHTML = path.join(process.cwd(), 'dist', 'index.html');
+      const template = handlebars.compile(
+        fs.readFileSync(pathIndexHTML, 'utf8'),
+      );
+      const result = ReactDom.renderToString(<App />);
+      const page = template({
+        content: result,
+      });
+      return page;
+    },
   });
 
   await server.start();

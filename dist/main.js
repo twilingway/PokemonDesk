@@ -42737,6 +42737,7 @@ object-assign
               });
             };
             getData();
+            // eslint-disable-next-line react-hooks/exhaustive-deps
           }, deps);
           return { data: data, isLoading: isLoading, isError: isError };
         };
@@ -42769,6 +42770,7 @@ object-assign
               return function () {
                 clearInterval(handler);
               };
+              // eslint-disable-next-line react-hooks/exhaustive-deps
             },
             [value],
           );
