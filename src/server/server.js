@@ -1,7 +1,7 @@
+import Hapi from '@hapi/hapi';
 import fs from 'fs';
 import path from 'path';
 import handlebars from 'handlebars';
-import Hapi from '@hapi/hapi';
 import React from 'react';
 import ReactDom from 'react-dom/server';
 import { setPath } from 'hookrouter';

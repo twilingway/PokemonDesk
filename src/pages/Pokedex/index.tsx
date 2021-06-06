@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { navigate } from 'hookrouter';
+import { useDispatch, useSelector } from 'react-redux';
 import PokemonCard from '../../components/PokemonCard';
 import Heading, { TagEnum } from '../../components/Heading';
 import useData from '../../hook/getData';
@@ -8,12 +9,20 @@ import { IPokemons, PokemonsRequest } from '../../interface/pokemons';
 import s from './pokedex.module.scss';
 import useDebounce from '../../hook/useDebounce';
 import { LinkEnum } from '../../routes';
+import {
+  getTypesAction,
+  selectPokemonsTypes,
+  selectPokemonsTypesLoading,
+} from '../../store/pokemon';
 
 interface IQuery {
   name?: string;
 }
 
 function PokedexPage() {
+  const dispatch = useDispatch();
+  const types = useSelector(selectPokemonsTypes);
+  const isTypesLoading = useSelector(selectPokemonsTypesLoading);
   const [searchValue, setSearchValue] = useState('');
   const [query, setQuery] = useState<IQuery>({});
   const debouncedValue = useDebounce(searchValue, 1000);
@@ -32,6 +41,10 @@ function PokedexPage() {
     }));
   };
 
+  useEffect(() => {
+    dispatch(getTypesAction());
+  }, []);
+
   // if (isLoading) {
   //   return <div>Loading...</div>;
   // }
@@ -46,8 +59,8 @@ function PokedexPage() {
         <div className={s.container}>
           <div className={s.title}>
             <Heading tag={TagEnum.h3}>
-              {!isLoading && data?.total} <b>Pokemons</b> for you to choose your
-              favorite
+              {!isTypesLoading && data?.total} <b>Pokemons</b> for you to choose
+              your favorite
             </Heading>
           </div>
           <div className={s.search}>
@@ -58,6 +71,7 @@ function PokedexPage() {
               placeholder="Input name pokemon"
             />
           </div>
+          <div>{!isLoading && types?.map((item) => <div>{item}</div>)}</div>
           <div className={s.pokemons}>
             {!isLoading &&
               data?.pokemons.map((item: PokemonsRequest) => (
