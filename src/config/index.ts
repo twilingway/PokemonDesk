@@ -35,6 +35,12 @@ interface Iconfig {
           pathname: string;
         };
       };
+      getPokemonTypes: {
+        method: string;
+        uri: {
+          pathname: string;
+        };
+      };
     };
   };
 }
@@ -76,6 +82,12 @@ const config: Iconfig = {
         method: 'DELETE',
         uri: {
           pathname: '/api/v1/pokemon/create',
+        },
+      },
+      getPokemonTypes: {
+        method: 'GET',
+        uri: {
+          pathname: '/api/v1/types',
         },
       },
     },

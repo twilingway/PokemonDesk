@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getTypesAction } from '../store/pokemon';
 import req from '../utils/request';
 
 export interface IStats {
@@ -25,6 +27,7 @@ export interface IPokemon {
 }
 
 const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
@@ -34,7 +37,7 @@ const useData = <T>(endpoint: string, query: object, deps: any[] = []) => {
       setIsLoading(true);
       try {
         const result = await req<T>(endpoint, query);
-
+        dispatch(getTypesAction());
         setData(result);
         setIsError(false);
       } catch (e) {
